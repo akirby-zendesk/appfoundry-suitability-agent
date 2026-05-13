@@ -19,16 +19,71 @@ This agent helps you:
 ✅ **Cloud Run Expertise** - Deep knowledge of Cloud Run constraints and best practices  
 ✅ **Code Examples** - Before/after code for every fix (when appropriate for your role)
 
+## Prerequisites
+
+Before installing, you need:
+
+- **Claude Code** - The CLI tool or desktop app ([Download](https://claude.ai/code))
+- **Git** - To clone the repository
+- **Terminal access** - To run the setup script
+
+**Compatibility:**
+- ✅ macOS
+- ✅ Linux
+- ✅ Windows (WSL or Git Bash)
+
 ## Quick Start
 
 ### Installation
 
+**Step 1: Clone the repository**
+
 ```bash
+# Clone to your preferred location
+git clone https://github.com/akirby-zendesk/appfoundry-suitability-agent.git
 cd appfoundry-suitability-agent
+```
+
+**Step 2: Run the setup script**
+
+```bash
 ./setup.sh
 ```
 
-This creates a symlink in `~/.claude/agents/` so the agent is available across all your Claude Code sessions.
+This will:
+- Check that Claude Code is installed (`~/.claude/agents/` directory exists)
+- Create a symlink: `~/.claude/agents/appfoundry-suitability.md` → `agents/appfoundry-suitability.md`
+- Make the agent available across all your Claude Code sessions
+
+**Step 3: Verify installation**
+
+```bash
+# Check the symlink was created
+ls -la ~/.claude/agents/appfoundry-suitability.md
+
+# Should show:
+# ~/.claude/agents/appfoundry-suitability.md -> /path/to/appfoundry-suitability-agent/agents/appfoundry-suitability.md
+```
+
+**Step 4: Start using the agent**
+
+Open Claude Code and type:
+```
+@appfoundry-suitability
+```
+
+The agent should appear in the autocomplete list.
+
+### Updating the Agent
+
+To get the latest features:
+
+```bash
+cd appfoundry-suitability-agent
+git pull
+```
+
+The symlink automatically points to the updated files - no need to reinstall!
 
 ### Basic Usage
 
@@ -340,28 +395,91 @@ The reporting module:
 
 ## Troubleshooting
 
-### Agent Not Found
+### Installation Issues
+
+**Error: "Claude Code agent directory not found"**
 
 ```bash
-# Check if agent is installed
+# The setup script can't find ~/.claude/agents/
+# Solution: Make sure Claude Code is installed and has been run at least once
+
+# If Claude Code is installed but directory doesn't exist, create it:
+mkdir -p ~/.claude/agents
+```
+
+**Error: "Permission denied" when running setup.sh**
+
+```bash
+# Solution: Make the setup script executable
+chmod +x setup.sh
+./setup.sh
+```
+
+**Setup script succeeds but agent not appearing in Claude Code**
+
+```bash
+# 1. Verify the symlink was created
 ls -la ~/.claude/agents/appfoundry-suitability.md
 
-# Reinstall if missing
+# Should output something like:
+# lrwxr-xr-x ... appfoundry-suitability.md -> /full/path/to/agents/appfoundry-suitability.md
+
+# 2. If symlink is broken (red in ls output), remove and recreate:
+rm ~/.claude/agents/appfoundry-suitability.md
+./setup.sh
+
+# 3. Restart Claude Code completely (quit and reopen)
+```
+
+### Agent Not Found in Claude Code
+
+**Symptom**: Typing `@appfoundry-suitability` doesn't show the agent
+
+```bash
+# Check if agent file exists and is readable
+cat ~/.claude/agents/appfoundry-suitability.md | head -10
+
+# Should show the agent frontmatter:
+# ---
+# name: appfoundry-suitability
+# description: ...
+# ---
+
+# If empty or error, reinstall:
 cd appfoundry-suitability-agent
 ./setup.sh
 ```
 
 ### Agent Not Loading in Claude Code
 
-1. Restart Claude Code
-2. Check for syntax errors:
+1. **Restart Claude Code completely** (quit application, reopen)
+2. **Check for syntax errors** in agent file:
    ```bash
-   cat ~/.claude/agents/appfoundry-suitability.md | head -20
+   # Verify YAML frontmatter is valid
+   cat ~/.claude/agents/appfoundry-suitability.md | head -5
    ```
-3. Verify symlink:
+3. **Verify symlink target exists**:
    ```bash
+   # Check symlink points to real file
    readlink ~/.claude/agents/appfoundry-suitability.md
+   ls -la $(readlink ~/.claude/agents/appfoundry-suitability.md)
    ```
+4. **Check file permissions**:
+   ```bash
+   # Agent file must be readable
+   chmod 644 ~/.claude/agents/appfoundry-suitability.md
+   ```
+
+### Agent Gives Outdated Advice
+
+```bash
+# Update to latest version
+cd appfoundry-suitability-agent
+git pull
+
+# Symlink automatically uses updated file
+# Restart Claude Code to reload agent
+```
 
 ### Assessment Too Generic
 
