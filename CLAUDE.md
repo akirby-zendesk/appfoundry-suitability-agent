@@ -29,7 +29,7 @@ The agent serves two primary use cases:
 
 The agent is an expert in:
 - Google Cloud Run constraints and patterns
-- Backstage component model
+- App Foundry deployment model
 - Stateless architecture design
 - Cloud-native authentication (service accounts, JWT)
 - Database connection pooling
@@ -242,5 +242,4 @@ This is an internal Zendesk tool. Updates should:
 ## Links
 
 - **App Foundry Portal**: https://portal.idp.zenai-apps.com
-- **Backstage Docs**: https://backstage.io/docs/
 - **Cloud Run Docs**: https://cloud.google.com/run/docs

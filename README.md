@@ -1,6 +1,6 @@
 # App Foundry Suitability Agent
 
-A Claude Code agent that assesses application suitability for deployment on **App Foundry**, Zendesk's internal developer platform built on Backstage and Google Cloud Run.
+A Claude Code agent that assesses application suitability for deployment on **App Foundry**, Zendesk's internal developer platform built on Google Cloud Run.
 
 ## What It Does
 
@@ -376,11 +376,11 @@ Assess for App Foundry deployment.
 
 **What is App Foundry?**
 - Zendesk's internal developer platform
-- Built on Backstage (Spotify's open-source portal)
 - Deploys to Google Cloud Run
 - Automatic Pomerium SSO authentication
 - PostgreSQL databases available
 - Internal URLs: `https://<name>.internal.zenai-apps.com`
+- Portal UI and API for deployment
 
 **Key Constraints:**
 - Request-driven (no background daemons)
@@ -401,7 +401,7 @@ Internal Zendesk tool. Not for external distribution.
 
 For App Foundry platform questions:
 - **Portal**: https://portal.idp.zenai-apps.com
-- **Docs**: Check Backstage documentation
+- **Docs**: Check platform documentation
 - **Team**: Contact Zendesk platform team
 
 For agent issues:

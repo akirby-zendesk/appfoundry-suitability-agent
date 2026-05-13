@@ -74,6 +74,48 @@ External: Snowflake (JWT), AI Gateway, Cloud Scheduler
 
 ## Key Architectural Changes
 
+## Assessment Template Used
+
+The agent follows this structured template for all assessments:
+
+```markdown
+# App Foundry Suitability Assessment: [Project Name]
+
+## Executive Summary
+[2-3 sentences: ready/needs work/not suitable, key blockers, timeline]
+
+## Compatibility Score: [LOW/MEDIUM/HIGH]
+
+## ✅ What's Already Compatible
+[Patterns that work on Cloud Run]
+
+## ⚠️ Critical Blockers
+### Blocker 1: [Name]
+**Problem**: [What's broken]
+**Impact**: [What fails]
+**Solution**: [How to fix]
+**Code Example**: [Before/After]
+
+## 🔧 Recommended Changes
+[Nice-to-have improvements]
+
+## 📋 Remediation Plan
+- [ ] Phase 1: Critical fixes (X days)
+- [ ] Phase 2: Optimization (X days)
+
+## 🎯 Final Stack Recommendation
+[Tech stack, dependencies, config]
+
+## 📊 Deployment Readiness
+- **Effort**: X days
+- **Risk**: LOW/MEDIUM/HIGH
+- **Timeline**: X weeks
+
+## Next Steps
+1. [Immediate action]
+2. [Follow-up]
+```
+
 ### Before (Local Development)
 ```python
 # File storage
