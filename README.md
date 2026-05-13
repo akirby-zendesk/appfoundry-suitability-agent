@@ -9,6 +9,15 @@ This agent helps you:
 1. **Assess existing codebases** - Evaluate if your application can deploy to App Foundry and identify blockers
 2. **Design new applications** - Get architecture guidance to build Cloud Run-compatible apps from the start
 3. **Fix deployment issues** - Diagnose why your app failed on Cloud Run and get remediation steps
+4. **Tailored to your role** - Automatically adjusts technical depth based on your proficiency level
+
+## Key Features
+
+✅ **Proficiency-Based Assessments** - Tailors output to 5 levels: Business/Sales, Product Manager, Operations, Developer, Senior Engineer/Architect  
+✅ **Cost Estimation** - Provides monthly cost estimates and optimization strategies  
+✅ **Comprehensive Template** - 11-section structured assessment covering architecture, security, monitoring, testing, and deployment  
+✅ **Cloud Run Expertise** - Deep knowledge of Cloud Run constraints and best practices  
+✅ **Code Examples** - Before/after code for every fix (when appropriate for your role)
 
 ## Quick Start
 
